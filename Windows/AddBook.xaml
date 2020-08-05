@@ -1,0 +1,41 @@
+﻿<Window x:Class="Library_Managment.Windows.AddBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+         FontFamily="Segoe UI Emoji"
+        ResizeMode="NoResize" 
+        Title="AddBook"  Height="500" Width="1057">
+    <Grid>
+        <Grid Margin="10,10,817,-18">
+            <StackPanel VerticalAlignment="Top" Margin="15">
+                <TextBox x:Name="TxtBookName" Margin="0,10" materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtAuthor" Margin="0,10" materialDesign:HintAssist.Hint="Yazici" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtEdition" Margin="0,10" materialDesign:HintAssist.Hint="Buraxilis Ili" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtPrice" Margin="0,10" materialDesign:HintAssist.Hint="Qiymeti" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <ComboBox x:Name="cmbCategory" Width="200" Height="40" materialDesign:HintAssist.Hint="Kateqoriya" Style="{StaticResource MaterialDesignDataGridComboBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" ItemsSource="{Binding Path=Category}"
+    DisplayMemberPath="Name"
+    SelectedValuePath="Id"
+    SelectedValue="{Binding Path=Category}"/>
+
+            </StackPanel>
+            <Button x:Name="addBook" Content="TESDIQLE" Margin="40,356,67,104" Click="addBook_Click"/>
+            <Button x:Name="bookEdit" Content="DEYIS" Margin="40,393,67,70" />
+            <Button x:Name="bookDelete" Content="SIL" Margin="40,430,67,30" />
+        </Grid>
+        <DataGrid x:Name="grdBooks" Margin="323,0,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="0.20*" Header="Ad" Binding="{Binding BookName}"/>
+                <DataGridTextColumn Width="0.20*" Header="Yazici" Binding="{Binding Author}"/>
+                <DataGridTextColumn Width="0.20*" Header="Qiymet" Binding="{Binding Price}"/>
+                <DataGridTextColumn Width="0.20*" Header="Kateqoriya" Binding="{Binding Category.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+    
+</Window>

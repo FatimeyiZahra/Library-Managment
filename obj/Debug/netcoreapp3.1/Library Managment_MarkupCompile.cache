@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\MacBook Air\source\repos\Library Managment\App.xaml
-4-842314924
+6-1017811979
 
-151690114650
-2141509408867
-MainWindow.xaml;Windows\DashboardWindow.xaml;Windows\HomePageWindow.xaml;Windows\Login.xaml;
+201112161765
+2151696736429
+MainWindow.xaml;Windows\AddBook.xaml;Windows\AddCustomer.xaml;Windows\HomePageWindow.xaml;Windows\HPageWindow.xaml;Windows\Login.xaml;
 
 False
 

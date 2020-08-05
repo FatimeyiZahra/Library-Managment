@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zeSjYnjKO899hQrWX288BrcXEQpXJxT6HMq8TRFi20ZtxHnFR0bXg4ThIak5t7H+JkVL8wh+Pi233CEvZsEFeg==",
+  "dgSpecHash": "UDCMdpgpmu9vj8CWaac9golDO4H4zX+sjWULx2K4ObWJYHftMiGi6JbC0ulEkQOPayNBO3EWbQS0eyum0NWv5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\MacBook Air\\source\\repos\\Library Managment\\Library Managment.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\MacBook Air\\.nuget\\packages\\dragablz\\0.0.3.203\\dragablz.0.0.3.203.nupkg.sha512",
     "C:\\Users\\MacBook Air\\.nuget\\packages\\materialdesigncolors\\1.2.6\\materialdesigncolors.1.2.6.nupkg.sha512",
     "C:\\Users\\MacBook Air\\.nuget\\packages\\materialdesignthemes\\3.1.3\\materialdesignthemes.3.1.3.nupkg.sha512",
     "C:\\Users\\MacBook Air\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -98,6 +99,16 @@
     "C:\\Users\\MacBook Air\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Dragablz 0.0.3.203' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Dragablz",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

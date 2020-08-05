@@ -11,13 +11,13 @@ namespace Library_Managment.Models
         public int Id { get; set; }
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public string BookName { get; set; }
         [Required]
         [StringLength(50)]
         public string Author { get; set; }
-        public int Edition { get; set; }
-        [Column(TypeName = "money")]
-        public int Price { get; set; }
+        public string Edition { get; set; }
+        //[Column(TypeName = "money")]
+        public string Price { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }

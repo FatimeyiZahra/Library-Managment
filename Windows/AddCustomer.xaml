@@ -1,0 +1,34 @@
+﻿<Window x:Class="Library_Managment.Windows.AddCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+         FontFamily="Segoe UI Emoji"
+        ResizeMode="NoResize" 
+        Title="AddCustomer"  Height="500" Width="1057">
+    <Grid>
+        <Grid Margin="10,10,817,-18">
+            <StackPanel VerticalAlignment="Top" Margin="15">
+                <TextBox x:Name="TxtCusername" Margin="0,10" materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCsurname" Margin="0,10" materialDesign:HintAssist.Hint="Soy Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCphone" Margin="0,10" materialDesign:HintAssist.Hint="Tel-No" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCemail" Margin="0,10" materialDesign:HintAssist.Hint="E-poct" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+
+            </StackPanel>
+            <Button x:Name="addCustomers" Content="TESDIQLE" Margin="40,354,39,38" Click="addCustomers_Click"/>
+        </Grid>
+        <DataGrid x:Name="grdCustomer" Margin="323,0,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="0.20*" Header="Ad" Binding="{Binding CustomerName}"/>
+                <DataGridTextColumn Width="0.20*" Header="Soyad" Binding="{Binding CustomerSurname}"/>
+                <DataGridTextColumn Width="0.20*" Header="Tel-no" Binding="{Binding CustomerTelNo}"/>
+                <DataGridTextColumn Width="0.20*" Header="Epoct" Binding="{Binding CustomerEmail}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

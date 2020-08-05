@@ -26,14 +26,14 @@
                 </Grid>
             </Button>
 
-            <Button Margin="20,192,19,360" Background="#FF8522BD" BorderBrush="#FF8522BD">
+            <Button x:Name="btnCustomer" Margin="20,192,19,360" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="btnCustomer_Click">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="ContentPaste" VerticalAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="MÜŞTƏRİLƏR" FontFamily="Champagne &amp; Limousines"/>
                 </Grid>
             </Button>
 
-            <Button Margin="21,246,19,306" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="Button_Click">
+            <Button x:Name="books" Margin="21,274,0,333" Background="#FF8522BD" BorderBrush="#FF8522BD"  HorizontalAlignment="Left" Width="208" Click="books_Click">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="Book" VerticalAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="KİTABLAR" FontFamily="Champagne &amp; Limousines"/>
@@ -49,7 +49,11 @@
             <Button x:Name="addBook" Content="kitab əlavə et" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Width="160" Visibility="Hidden"/>
         </Grid>
 
-        <DataGrid x:Name="grdBooks" Margin="356,0,0,10" AutoGenerateColumns="False" CanUserAddRows="False" Visibility="Visible">
+        <!--<Grid Margin="251,38,809,28">
+            
+        </Grid>-->
+
+        <!--<DataGrid x:Name="grdBooks"  Margin="356,0,0,10" AutoGenerateColumns="False" CanUserAddRows="False" Visibility="Visible">
             <DataGrid.Columns>
 
                 <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
@@ -60,7 +64,7 @@
             <DataGridTextColumn Width="0.10*" Header="Qiymet" Binding="{Binding Price}"/>
                 </DataGrid.Columns>
 
-        </DataGrid>
+        </DataGrid>-->
 
         <Grid x:Name="dbcontent" Margin="36,104,792,355">
             <Grid.RowDefinitions>

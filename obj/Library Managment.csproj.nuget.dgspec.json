@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Dragablz": {
+              "target": "Package",
+              "version": "[0.0.3.203, )"
+            },
             "MaterialDesignColors": {
               "target": "Package",
               "version": "[1.2.6, )"

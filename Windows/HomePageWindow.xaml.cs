@@ -18,30 +18,37 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class HomePageWindow : Window
     {
-        private readonly LibraryContext _context;
         public HomePageWindow()
         {
             InitializeComponent();
-            _context = new LibraryContext();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            grdBooks.Visibility = Visibility.Visible;
-            btnDashboard.Margin = new Thickness(20, 135, 20, 400);
-            dbcontent.Visibility = Visibility.Hidden;
-           addBook.Visibility = Visibility.Visible;
-            btnİdareciler.Margin = new Thickness(20, 352, 19, 200);
-            btnHesabatlar.Margin= new Thickness(20, 400, 19, 250);
-        }
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
             btnDashboard.Margin = new Thickness(20, 35, 19, 517);
             dbcontent.Visibility = Visibility.Visible;
             addBook.Visibility = Visibility.Hidden;
-            grdBooks.Visibility = Visibility.Hidden;
+            //grdBooks.Visibility = Visibility.Hidden;
           
+        }
+
+        private void btnCustomer_Click(object sender, RoutedEventArgs e)
+        {
+         
+            AddCustomer addCustomer = new AddCustomer();
+            addCustomer.Show();  
+            dbcontent.Visibility = Visibility.Hidden;
+        }
+
+        private void books_Click(object sender, RoutedEventArgs e)
+        {
+            //grdBooks.Visibility = Visibility.Visible;
+            btnDashboard.Margin = new Thickness(20, 135, 20, 400);
+            dbcontent.Visibility = Visibility.Hidden;
+            addBook.Visibility = Visibility.Visible;
+            btnİdareciler.Margin = new Thickness(20, 352, 19, 200);
+            btnHesabatlar.Margin = new Thickness(20, 400, 19, 250);
         }
     }
 }

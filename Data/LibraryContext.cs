@@ -15,6 +15,10 @@ namespace Library_Managment.Data
         public DbSet<Users> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Books> Books { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Issue> Issues { get; set; }
+        public DbSet<ReturnBook> ReturnBooks { get; set; }
+
 
 
     }

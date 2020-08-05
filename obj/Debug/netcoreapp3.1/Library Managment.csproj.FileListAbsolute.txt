@@ -59,5 +59,10 @@ C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Libr
 C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\HomePageWindow.g.cs
 C:\Users\MacBook Air\source\repos\Library Managment\bin\Debug\netcoreapp3.1\De.TorstenMandelkow.MetroChart.dll
 C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\HomePageWindow.baml
-C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\DashboardWindow.g.cs
-C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\DashboardWindow.baml
+C:\Users\MacBook Air\source\repos\Library Managment\bin\Debug\netcoreapp3.1\Dragablz.dll
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\HPageWindow.g.cs
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\HPageWindow.baml
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\AddCustomer.g.cs
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\AddCustomer.baml
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\AddBook.g.cs
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\AddBook.baml
