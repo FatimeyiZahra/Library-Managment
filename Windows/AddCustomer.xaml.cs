@@ -21,6 +21,7 @@ namespace Library_Managment.Windows
     public partial class AddCustomer : Window
     {
         private readonly LibraryContext _context;
+        private Customer _selectedCustomer;
         public AddCustomer()
         {
             InitializeComponent();
@@ -34,9 +35,18 @@ namespace Library_Managment.Windows
             TxtCphone.Clear();
             TxtCemail.Clear();
             FillCustomer();
+
+            editCustomer.Visibility = Visibility.Hidden;
+            deleteCustomer.Visibility = Visibility.Hidden;
+            addCustomers.Visibility = Visibility.Visible;
         }
         private void addCustomers_Click(object sender, RoutedEventArgs e)
         {
+            if (FormValidation())
+            {
+                MessageBox.Show("qirmizi olan yerleri doldurmalısınız");
+                return;
+            }
             Customer customer = new Customer
             {
                 CustomerName = TxtCusername.Text,
@@ -53,6 +63,92 @@ namespace Library_Managment.Windows
         private void FillCustomer()
         {
             grdCustomer.ItemsSource = _context.Customers.ToList();
+        }
+
+        private void grdCustomer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (grdCustomer.SelectedItem == null) return;
+            _selectedCustomer = (Customer)grdCustomer.SelectedItem;
+            TxtCusername.Text = _selectedCustomer.CustomerName;
+            TxtCsurname.Text = _selectedCustomer.CustomerSurname;
+            TxtCphone.Text = _selectedCustomer.CustomerTelNo;
+            TxtCemail.Text = _selectedCustomer.CustomerEmail;
+
+            editCustomer.Visibility = Visibility.Visible;
+            deleteCustomer.Visibility = Visibility.Visible;
+            addCustomers.Visibility = Visibility.Hidden;
+
+        }
+
+        private void deleteCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult r = MessageBox.Show("Əminsiniz mi?", _selectedCustomer.ToString(), MessageBoxButton.OKCancel);
+            if (r == MessageBoxResult.OK)
+            {
+                _context.Customers.Remove(_selectedCustomer);
+                _context.SaveChanges();
+                Reset();
+                MessageBox.Show("musteri silindi");
+            }
+        }
+
+        private void editCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            if (FormValidation())
+            {
+                MessageBox.Show("qirmizi olan yerleri doldurmalısınız");
+                return;
+            }
+            _selectedCustomer.CustomerName = TxtCusername.Text;
+            _selectedCustomer.CustomerSurname = TxtCsurname.Text;
+            _selectedCustomer.CustomerEmail = TxtCemail.Text;
+            _selectedCustomer.CustomerTelNo = TxtCphone.Text;
+            _context.SaveChanges();
+            Reset();
+            MessageBox.Show("deyistirildi");
+        }
+
+        private bool FormValidation()
+        {
+            bool hasError = false;
+
+            if (string.IsNullOrEmpty(TxtCusername.Text))
+            {
+                TxtCusername.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                TxtCusername.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            if (string.IsNullOrEmpty(TxtCsurname.Text))
+            {
+                TxtCsurname.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                TxtCsurname.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            if (string.IsNullOrEmpty(TxtCphone.Text))
+            {
+                TxtCphone.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                TxtCphone.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            if (string.IsNullOrEmpty(TxtCemail.Text))
+            {
+                TxtCemail.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                TxtCemail.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            return hasError;
         }
     }
 }

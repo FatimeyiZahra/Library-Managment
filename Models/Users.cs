@@ -16,5 +16,9 @@ namespace Library_Managment.Models
         [Required]
         [StringLength(50)]
         public string Password { get; set; }
+        public override string ToString()
+        {
+            return Username;
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Library_Managment.Models
 {
-   public class Books
+    public class Books
     {
         public int Id { get; set; }
         [Required]
@@ -20,5 +20,9 @@ namespace Library_Managment.Models
         public string Price { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        public override string ToString()
+        {
+            return BookName + " " + Author;
+        }
     }
 }

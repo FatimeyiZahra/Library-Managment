@@ -11,7 +11,7 @@
         ResizeMode="NoResize" 
         Title="AddCustomer"  Height="500" Width="1057">
     <Grid>
-        <Grid Margin="10,10,817,-18">
+        <Grid Margin="10,10,817,-57">
             <StackPanel VerticalAlignment="Top" Margin="15">
                 <TextBox x:Name="TxtCusername" Margin="0,10" materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <TextBox x:Name="TxtCsurname" Margin="0,10" materialDesign:HintAssist.Hint="Soy Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
@@ -19,9 +19,11 @@
                 <TextBox x:Name="TxtCemail" Margin="0,10" materialDesign:HintAssist.Hint="E-poct" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
 
             </StackPanel>
-            <Button x:Name="addCustomers" Content="TESDIQLE" Margin="40,354,39,38" Click="addCustomers_Click"/>
+            <Button x:Name="addCustomers" Content="TƏSDIQLƏ" Margin="40,313,40,147" Click="addCustomers_Click"/>
+            <Button x:Name="editCustomer" Content="DƏYİŞ" Margin="40,350,40,110" Visibility="Hidden" Click="editCustomer_Click" />
+            <Button x:Name="deleteCustomer" Content="SIL" Margin="40,387,40,73"  Visibility="Hidden" Click="deleteCustomer_Click"/>
         </Grid>
-        <DataGrid x:Name="grdCustomer" Margin="323,0,10,10">
+        <DataGrid x:Name="grdCustomer" Margin="323,0,10,10" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="grdCustomer_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Width="0.20*" Header="Ad" Binding="{Binding CustomerName}"/>

@@ -9,25 +9,26 @@
         WindowStartupLocation="CenterScreen"
          FontFamily="Segoe UI Emoji"
         ResizeMode="NoResize" 
-        Title="AddBook"  Height="500" Width="1057">
+        Title="AddBook"  Height="600" Width="1057">
     <Grid>
-        <Grid Margin="10,10,817,-18">
+        <Grid Margin="10,10,817,-66">
             <StackPanel VerticalAlignment="Top" Margin="15">
                 <TextBox x:Name="TxtBookName" Margin="0,10" materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <TextBox x:Name="TxtAuthor" Margin="0,10" materialDesign:HintAssist.Hint="Yazici" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <TextBox x:Name="TxtEdition" Margin="0,10" materialDesign:HintAssist.Hint="Buraxilis Ili" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <TextBox x:Name="TxtPrice" Margin="0,10" materialDesign:HintAssist.Hint="Qiymeti" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
-                <ComboBox x:Name="cmbCategory" Width="200" Height="40" materialDesign:HintAssist.Hint="Kateqoriya" Style="{StaticResource MaterialDesignDataGridComboBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" ItemsSource="{Binding Path=Category}"
+                
+<ComboBox x:Name="cmbCategory" Width="200" Height="40" materialDesign:HintAssist.Hint="Kateqoriya" Style="{StaticResource MaterialDesignDataGridComboBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" ItemsSource="{Binding Path=Category}"
     DisplayMemberPath="Name"
     SelectedValuePath="Id"
     SelectedValue="{Binding Path=Category}"/>
 
             </StackPanel>
             <Button x:Name="addBook" Content="TESDIQLE" Margin="40,356,67,104" Click="addBook_Click"/>
-            <Button x:Name="bookEdit" Content="DEYIS" Margin="40,393,67,70" />
-            <Button x:Name="bookDelete" Content="SIL" Margin="40,430,67,30" />
+            <Button x:Name="bookEdit" Content="DEYIS" Margin="40,393,67,70" Click="bookEdit_Click" Visibility="Hidden"/>
+            <Button x:Name="bookDelete" Content="SIL" Margin="40,430,67,30" Click="bookDelete_Click" Visibility="Hidden"/>
         </Grid>
-        <DataGrid x:Name="grdBooks" Margin="323,0,10,10">
+        <DataGrid x:Name="grdBooks" Margin="323,0,10,10" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="grdBooks_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Width="0.20*" Header="Ad" Binding="{Binding BookName}"/>

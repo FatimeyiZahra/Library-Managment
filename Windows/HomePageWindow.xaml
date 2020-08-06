@@ -8,45 +8,45 @@
    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
   xmlns:MetroChart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Title="HomePageWindow" Height="600" Width="1024"
+        Title="HomePageWindow" Height="600" Width="350"
         >
     <Grid>
-        <Grid Margin="10,10,766,-65" RenderTransformOrigin="0.512,0.734">
-            <Button x:Name="btnDashboard" Margin="20,35,19,517"  Background="#FF8522BD" BorderBrush="#FF8522BD" Click="btnDashboard_Click">
+        <Grid Margin="10,10,10,-103" RenderTransformOrigin="0.512,0.734">
+            <Button x:Name="btnDashboard" Margin="20,35,19,485"  Background="#FF8522BD" BorderBrush="#FF8522BD" Click="btnDashboard_Click">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="DASHBOARD" FontFamily="Champagne &amp; Limousines"/>
                 </Grid>
             </Button>
 
-            <Button x:Name="btnİdareciler" Margin="20,301,19,251" Background="#FF8522BD" BorderBrush="#FF8522BD">
+            <Button x:Name="btnİdareciler" Margin="20,325,19,217" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="btnİdareciler_Click">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="İDARƏÇİLƏR" FontFamily="Champagne &amp; Limousines"/>
                 </Grid>
             </Button>
 
-            <Button x:Name="btnCustomer" Margin="20,192,19,360" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="btnCustomer_Click">
+            <Button x:Name="btnCustomer" Margin="20,203,19,339" Background="#FF8522BD" BorderBrush="#FF8522BD" Click="btnCustomer_Click">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="ContentPaste" VerticalAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="MÜŞTƏRİLƏR" FontFamily="Champagne &amp; Limousines"/>
                 </Grid>
             </Button>
 
-            <Button x:Name="books" Margin="21,274,0,333" Background="#FF8522BD" BorderBrush="#FF8522BD"  HorizontalAlignment="Left" Width="208" Click="books_Click">
+            <Button x:Name="books" Margin="0,267,0,275" Background="#FF8522BD" BorderBrush="#FF8522BD"  HorizontalAlignment="Center" Width="290" Click="books_Click">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="Book" VerticalAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="KİTABLAR" FontFamily="Champagne &amp; Limousines"/>
                 </Grid>
             </Button>
 
-            <Button x:Name="btnHesabatlar" Margin="20,352,19,200" Background="#FF8522BD" BorderBrush="#FF8522BD">
+            <Button x:Name="btnHesabatlar" Margin="20,416,19,173" Background="#FF8522BD" BorderBrush="#FF8522BD">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
                     <TextBlock HorizontalAlignment="Center" Text="HESABATLAR" FontFamily="Champagne &amp; Limousines"/>
                 </Grid>
             </Button>
-            <Button x:Name="addBook" Content="kitab əlavə et" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Width="160" Visibility="Hidden"/>
+            <Button x:Name="addBook" Content="kitab əlavə et" HorizontalAlignment="Center" Margin="0,345,0,0" Visibility="Hidden" VerticalAlignment="Top" Width="160"  Click="addBook_Click"/>
         </Grid>
 
         <!--<Grid Margin="251,38,809,28">
@@ -66,15 +66,15 @@
 
         </DataGrid>-->
 
-        <Grid x:Name="dbcontent" Margin="36,104,792,355">
+        <Grid x:Name="dbcontent" Margin="34,131,34,328">
             <Grid.RowDefinitions>
                 <RowDefinition Height="155*"/>
                 <RowDefinition Height="11*"/>
             </Grid.RowDefinitions>
-            <Button Content="sifaris yaratmaq" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="27" Width="176"/>
+            <Button Content="sifaris yaratmaq" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="27" Width="215"/>
             <Button Content="kitab qaytarma" HorizontalAlignment="Center" Margin="0,42,0,0" VerticalAlignment="Top" Height="27" Width="176"/>
-            <Button Content="qaytarılacaq kitablar" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="27" Width="176"/>
-            <Button Content="kitab qaytarma" HorizontalAlignment="Center" Margin="0,42,0,0" VerticalAlignment="Top" Height="27" Width="176"/>
+            <Button Content="qaytarılacaq kitablar" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="27" Width="215"/>
+            <Button Content="kitab qaytarma" HorizontalAlignment="Center" Margin="0,42,0,0" VerticalAlignment="Top" Height="27" Width="215"/>
         </Grid>
     </Grid>
 

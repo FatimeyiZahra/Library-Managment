@@ -10,6 +10,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200805231608_addedNewTables.cs" />
     <Compile Remove="Migrations\20200805231608_addedNewTables.Designer.cs" />
+    <Compile Remove="Migrations\20200806122712_addedNewTables.cs" />
+    <Compile Remove="Migrations\20200806122712_addedNewTables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
