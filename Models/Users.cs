@@ -9,11 +9,13 @@ namespace Library_Managment.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ad bos ola bilmez")]
+        //[Required]
         [StringLength(50)]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "sifre bos ola bilmez")]
+        //[Required]
         [StringLength(50)]
         public string Password { get; set; }
         public override string ToString()

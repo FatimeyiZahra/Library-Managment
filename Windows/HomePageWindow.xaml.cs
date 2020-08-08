@@ -28,7 +28,6 @@ namespace Library_Managment.Windows
         {
             btnDashboard.Margin = new Thickness(20, 35, 19, 517);
             dbcontent.Visibility = Visibility.Visible;
-            addBook.Visibility = Visibility.Hidden;
           
         }
 
@@ -38,25 +37,17 @@ namespace Library_Managment.Windows
             AddCustomer addCustomer = new AddCustomer();
             addCustomer.Show();  
             dbcontent.Visibility = Visibility.Hidden;
-            addBook.Visibility = Visibility.Hidden;
 
         }
 
         private void books_Click(object sender, RoutedEventArgs e)
         {
-            //grdBooks.Visibility = Visibility.Visible;
             btnDashboard.Margin = new Thickness(20, 135, 20, 400);
             dbcontent.Visibility = Visibility.Hidden;
-            addBook.Visibility = Visibility.Visible;
-            btnİdareciler.Margin = new Thickness(20, 352, 19, 200);
-            btnHesabatlar.Margin = new Thickness(19, 450, 20, 139);
-        }
-
-        private void addBook_Click(object sender, RoutedEventArgs e)
-        {
-            AddBook addBook = new AddBook();
+       AddBook addBook = new AddBook();
             addBook.Show();
         }
+
 
         private void btnİdareciler_Click(object sender, RoutedEventArgs e)
         {

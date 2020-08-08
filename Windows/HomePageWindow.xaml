@@ -46,7 +46,6 @@
                     <TextBlock HorizontalAlignment="Center" Text="HESABATLAR" FontFamily="Champagne &amp; Limousines"/>
                 </Grid>
             </Button>
-            <Button x:Name="addBook" Content="kitab əlavə et" HorizontalAlignment="Center" Margin="0,345,0,0" Visibility="Hidden" VerticalAlignment="Top" Width="160"  Click="addBook_Click"/>
         </Grid>
 
         <!--<Grid Margin="251,38,809,28">

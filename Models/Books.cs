@@ -16,10 +16,15 @@ namespace Library_Managment.Models
         [StringLength(50)]
         public string Author { get; set; }
         public string Edition { get; set; }
+        public string Bookshelf { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Barcode { get; set; }
         //[Column(TypeName = "money")]
         public string Price { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
         public override string ToString()
         {
             return BookName + " " + Author;
