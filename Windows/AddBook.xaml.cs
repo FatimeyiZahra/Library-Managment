@@ -71,8 +71,8 @@ namespace Library_Managment.Windows
                 Author = TxtAuthor.Text,
                 Price = TxtPrice.Text, //tekrar baxacagam buna
                 Edition = TxtEdition.Text,
-                Bookshelf=TxtShelf.Text,
-                Barcode= TxtBarcode.Text,
+                Bookshelf = TxtShelf.Text,
+                Barcode = TxtBarcode.Text,
                 CategoryId = (int)cmbCategory.SelectedValue,
 
             };
@@ -239,7 +239,7 @@ namespace Library_Managment.Windows
 
         //when u search book for its barcode , write data to textbox automatically
         #region barcode
-            private void txtSearchBarcode_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtSearchBarcode_TextChanged(object sender, TextChangedEventArgs e)
         {
             var db = new LibraryContext();
             var model = db.Books.Where(x => x.Barcode == txtSearchBarcode.Text).ToList();
@@ -252,6 +252,17 @@ namespace Library_Managment.Windows
                 TxtBarcode.Text = item.Barcode;
                 TxtShelf.Text = item.Bookshelf;
                 cmbCategory.SelectedValue = item.CategoryId;
+            }
+            if (string.IsNullOrEmpty(txtSearchBarcode.Text))
+            {
+                TxtBookName.Clear();
+                TxtAuthor.Clear();
+                TxtEdition.Clear();
+                TxtPrice.Clear();
+                TxtShelf.Clear();
+                TxtBarcode.Clear();
+                cmbCategory.SelectedItem = null;
+                FillBook();
             }
         }
 
