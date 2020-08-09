@@ -25,6 +25,7 @@ namespace Library_Managment.Windows
     {
         private readonly LibraryContext _context;
         private Books _selectedBook;
+        //public event EventHandler CustomerInfo;
         public AddBook()
         {
             InitializeComponent();
@@ -69,7 +70,7 @@ namespace Library_Managment.Windows
             {
                 BookName = TxtBookName.Text,
                 Author = TxtAuthor.Text,
-                Price = TxtPrice.Text, //tekrar baxacagam buna
+                Price = TxtPrice.Text, 
                 Edition = TxtEdition.Text,
                 Bookshelf = TxtShelf.Text,
                 Barcode = TxtBarcode.Text,
@@ -223,6 +224,8 @@ namespace Library_Managment.Windows
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             grdBooks.ItemsSource = _context.Books.FromSqlRaw("select * from dbo.Books where BookName LIKE '%" + txtSearchBook.Text + "%'").ToList();
+            //var db = new LibraryContext();
+            //var model = db.Books.Where(x => x.BookName.Contains(txtSearchBook.Text)).ToList();
         }
 
         #endregion
@@ -235,7 +238,6 @@ namespace Library_Managment.Windows
         }
         #endregion
 
-        //SqlConnection connectin = new SqlConnection(@"Server=DESKTOP-DGKGL9C\MSSQLSERVER01;Database=Library;Integrated Security=True");
 
         //when u search book for its barcode , write data to textbox automatically
         #region barcode

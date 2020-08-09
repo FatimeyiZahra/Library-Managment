@@ -16,6 +16,9 @@ namespace Library_Managment.Models
         public string CustomerSurname { get; set; }
         [Required]
         [StringLength(50)]
+        public string CustomerCode { get; set; }
+        [Required]
+        [StringLength(50)]
         public string CustomerTelNo { get; set; }
         [Required]
         [StringLength(50)]

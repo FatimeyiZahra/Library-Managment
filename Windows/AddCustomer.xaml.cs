@@ -34,6 +34,7 @@ namespace Library_Managment.Windows
             TxtCusername.Clear();
             TxtCphone.Clear();
             TxtCemail.Clear();
+            TxtCcode.Clear();
             FillCustomer();
 
             editCustomer.Visibility = Visibility.Hidden;
@@ -53,6 +54,7 @@ namespace Library_Managment.Windows
                 CustomerSurname = TxtCsurname.Text,
                 CustomerEmail = TxtCemail.Text,
                 CustomerTelNo = TxtCphone.Text,
+                CustomerCode=TxtCcode.Text,
 
             };
             _context.Customers.Add(customer);
@@ -73,6 +75,7 @@ namespace Library_Managment.Windows
             TxtCsurname.Text = _selectedCustomer.CustomerSurname;
             TxtCphone.Text = _selectedCustomer.CustomerTelNo;
             TxtCemail.Text = _selectedCustomer.CustomerEmail;
+            TxtCcode.Text = _selectedCustomer.CustomerCode;
 
             editCustomer.Visibility = Visibility.Visible;
             deleteCustomer.Visibility = Visibility.Visible;
@@ -103,6 +106,7 @@ namespace Library_Managment.Windows
             _selectedCustomer.CustomerSurname = TxtCsurname.Text;
             _selectedCustomer.CustomerEmail = TxtCemail.Text;
             _selectedCustomer.CustomerTelNo = TxtCphone.Text;
+            _selectedCustomer.CustomerCode = TxtCcode.Text;
             _context.SaveChanges();
             Reset();
             MessageBox.Show("deyistirildi");
@@ -147,6 +151,15 @@ namespace Library_Managment.Windows
             else
             {
                 TxtCemail.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            if (string.IsNullOrEmpty(TxtCcode.Text))
+            {
+                TxtCcode.Foreground = new SolidColorBrush(Colors.Red);
+                hasError = true;
+            }
+            else
+            {
+                TxtCcode.Foreground = new SolidColorBrush(Colors.Black);
             }
             return hasError;
         }

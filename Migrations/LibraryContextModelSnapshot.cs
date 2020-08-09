@@ -19,6 +19,33 @@ namespace Library_Managment.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Library_Managment.Models.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookNameId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PriceId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ReturnDate")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Baskets");
+                });
+
             modelBuilder.Entity("Library_Managment.Models.Books", b =>
                 {
                     b.Property<int>("Id")
@@ -89,6 +116,11 @@ namespace Library_Managment.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CustomerCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
                     b.Property<string>("CustomerEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -121,19 +153,19 @@ namespace Library_Managment.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("BarcodeId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Fine")
-                        .HasColumnType("float");
-
                     b.Property<DateTime>("IssueDate")
                         .HasColumnType("date");
 
-                    b.Property<DateTime?>("ReturnDate")
+                    b.Property<DateTime?>("ReturnDateId")
                         .HasColumnType("date");
 
                     b.HasKey("Id");

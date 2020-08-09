@@ -68,3 +68,5 @@ C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Wind
 C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\AddBook.baml
 C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\AddUser.g.cs
 C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\AddUser.baml
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\IssueBook.g.cs
+C:\Users\MacBook Air\source\repos\Library Managment\obj\Debug\netcoreapp3.1\Windows\IssueBook.baml

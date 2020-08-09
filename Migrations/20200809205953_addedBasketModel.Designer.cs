@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library_Managment.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20200808190115_addedRowToBookTable")]
-    partial class addedRowToBookTable
+    [Migration("20200809205953_addedBasketModel")]
+    partial class addedBasketModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,33 @@ namespace Library_Managment.Migrations
                 .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Library_Managment.Models.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BarcodeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookNameId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IssueDateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReturnDateId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Baskets");
+                });
 
             modelBuilder.Entity("Library_Managment.Models.Books", b =>
                 {
@@ -91,6 +118,11 @@ namespace Library_Managment.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CustomerCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
                     b.Property<string>("CustomerEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -128,9 +160,6 @@ namespace Library_Managment.Migrations
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
-
-                    b.Property<double>("Fine")
-                        .HasColumnType("float");
 
                     b.Property<DateTime>("IssueDate")
                         .HasColumnType("date");

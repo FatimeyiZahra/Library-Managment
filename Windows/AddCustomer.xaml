@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
          FontFamily="Segoe UI Emoji"
         ResizeMode="NoResize" 
-        Title="AddCustomer"  Height="500" Width="1057">
+        Title="AddCustomer"  Height="550" Width="1057">
     <Grid>
         <Grid Margin="10,10,817,-57">
             <StackPanel VerticalAlignment="Top" Margin="15">
@@ -17,9 +17,10 @@
                 <TextBox x:Name="TxtCsurname" Margin="0,10" materialDesign:HintAssist.Hint="Soy Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <TextBox x:Name="TxtCphone" Margin="0,10" materialDesign:HintAssist.Hint="Tel-No" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
                 <TextBox x:Name="TxtCemail" Margin="0,10" materialDesign:HintAssist.Hint="E-poct" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCcode" materialDesign:HintAssist.Hint="Musteri Kodu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
 
             </StackPanel>
-            <Button x:Name="addCustomers" Content="TƏSDIQLƏ" Margin="40,313,40,147" Click="addCustomers_Click"/>
+            <Button x:Name="addCustomers" Content="TƏSDIQLƏ" Margin="40,348,40,151" Click="addCustomers_Click"/>
             <Button x:Name="editCustomer" Content="DƏYİŞ" Margin="40,350,40,110" Visibility="Hidden" Click="editCustomer_Click" />
             <Button x:Name="deleteCustomer" Content="SIL" Margin="40,387,40,73"  Visibility="Hidden" Click="deleteCustomer_Click"/>
         </Grid>
@@ -30,6 +31,8 @@
                 <DataGridTextColumn Width="0.20*" Header="Soyad" Binding="{Binding CustomerSurname}"/>
                 <DataGridTextColumn Width="0.20*" Header="Tel-no" Binding="{Binding CustomerTelNo}"/>
                 <DataGridTextColumn Width="0.20*" Header="Epoct" Binding="{Binding CustomerEmail}"/>
+                <DataGridTextColumn Width="0.20*" Header="Musteri Kodu" Binding="{Binding CustomerCode}"/>
+
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

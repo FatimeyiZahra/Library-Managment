@@ -16,11 +16,12 @@ namespace Library_Managment.Models
         public DateTime IssueDate { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? ReturnDate { get; set; }
+        public DateTime? ReturnDateId { get; set; }
 
         public int BookId { get; set; }
+        public string BarcodeId { get; set; }
 
-        public double Fine { get; set; }
+        //public double Fine { get; set; }
         public ICollection<Books> Books { get; set; }
 
     }

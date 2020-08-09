@@ -57,5 +57,12 @@ namespace Library_Managment.Windows
             AddUser addUser = new AddUser();
             addUser.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IssueBook issueBook = new IssueBook();
+            issueBook.Show();
+
+        }
     }
 }

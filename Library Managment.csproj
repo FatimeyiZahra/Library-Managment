@@ -8,13 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200805231608_addedNewTables.cs" />
-    <Compile Remove="Migrations\20200805231608_addedNewTables.Designer.cs" />
-    <Compile Remove="Migrations\20200806122712_addedNewTables.cs" />
-    <Compile Remove="Migrations\20200806122712_addedNewTables.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Dragablz" Version="0.0.3.203" />
     <PackageReference Include="MaterialDesignColors" Version="1.2.6" />
     <PackageReference Include="MaterialDesignThemes" Version="3.1.3" />

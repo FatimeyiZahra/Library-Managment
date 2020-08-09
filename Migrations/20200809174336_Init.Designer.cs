@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library_Managment.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20200808211555_InitialCreateeeeeeee")]
-    partial class InitialCreateeeeeeee
+    [Migration("20200809174336_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,6 +90,11 @@ namespace Library_Managment.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CustomerCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("CustomerEmail")
                         .IsRequired()
