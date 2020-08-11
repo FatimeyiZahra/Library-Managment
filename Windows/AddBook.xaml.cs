@@ -70,7 +70,7 @@ namespace Library_Managment.Windows
             {
                 BookName = TxtBookName.Text,
                 Author = TxtAuthor.Text,
-                Price = TxtPrice.Text, 
+                Price = int.Parse(TxtPrice.Text),
                 Edition = TxtEdition.Text,
                 Bookshelf = TxtShelf.Text,
                 Barcode = TxtBarcode.Text,
@@ -98,7 +98,7 @@ namespace Library_Managment.Windows
             TxtAuthor.Text = _selectedBook.Author;
             TxtBookName.Text = _selectedBook.BookName;
             TxtEdition.Text = _selectedBook.Edition;
-            TxtPrice.Text = _selectedBook.Price;
+            TxtPrice.Text = _selectedBook.Price.ToString(); 
             TxtShelf.Text = _selectedBook.Bookshelf;
             cmbCategory.SelectedValue = _selectedBook.CategoryId;
 
@@ -139,7 +139,7 @@ namespace Library_Managment.Windows
             _selectedBook.Bookshelf = TxtShelf.Text;
             _selectedBook.CategoryId = (int)cmbCategory.SelectedValue;
             _selectedBook.Edition = TxtEdition.Text;
-            _selectedBook.Price = TxtPrice.Text;
+            _selectedBook.Price = int.Parse(TxtPrice.Text);
             _context.SaveChanges();
             Reset();
             MessageBox.Show("deyistirildi");
@@ -238,7 +238,6 @@ namespace Library_Managment.Windows
         }
         #endregion
 
-
         //when u search book for its barcode , write data to textbox automatically
         #region barcode
         private void txtSearchBarcode_TextChanged(object sender, TextChangedEventArgs e)
@@ -250,7 +249,7 @@ namespace Library_Managment.Windows
                 TxtAuthor.Text = item.Author;
                 TxtBookName.Text = item.BookName;
                 TxtEdition.Text = item.Edition;
-                TxtPrice.Text = item.Price;
+                TxtPrice.Text = item.Price.ToString(); 
                 TxtBarcode.Text = item.Barcode;
                 TxtShelf.Text = item.Bookshelf;
                 cmbCategory.SelectedValue = item.CategoryId;

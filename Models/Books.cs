@@ -21,7 +21,7 @@ namespace Library_Managment.Models
         [StringLength(50)]
         public string Barcode { get; set; }
         //[Column(TypeName = "money")]
-        public string Price { get; set; }
+        public int Price { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 

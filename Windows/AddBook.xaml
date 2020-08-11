@@ -34,11 +34,13 @@
         <DataGrid x:Name="grdBooks"  Margin="347,0,10,114" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True" SelectionChanged="grdBooks_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
-                <DataGridTextColumn Width="0.20*" Header="Barkod" Binding="{Binding Barcode}"/>
+                <DataGridTextColumn Width="0.15*" Header="Barkod" Binding="{Binding Barcode}"/>
                 <DataGridTextColumn Width="0.20*" Header="Ad" Binding="{Binding BookName}"/>
                 <DataGridTextColumn Width="0.20*" Header="Yazici" Binding="{Binding Author}"/>
                 <DataGridTextColumn Width="0.20*" Header="Qiymet" Binding="{Binding Price}"/>
                 <DataGridTextColumn Width="0.10*" Header="Rəf" Binding="{Binding Bookshelf}"/>
+                <DataGridTextColumn Width="0.15*" Header="Il" Binding="{Binding Edition}"/>
+
                 <DataGridTextColumn Width="0.20*" Header="Kateqoriya" Binding="{Binding Category.Name}"/>
             </DataGrid.Columns>
         </DataGrid>

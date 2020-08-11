@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Library_Managment.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,9 +45,8 @@ namespace Library_Managment.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(nullable: false),
                     IssueDate = table.Column<DateTime>(type: "date", nullable: false),
-                    ReturnDate = table.Column<DateTime>(type: "date", nullable: true),
-                    BookId = table.Column<int>(nullable: false),
-                    Fine = table.Column<double>(nullable: false)
+                    ReturnDate = table.Column<DateTime>(type: "date", nullable: false),
+                    BooksId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,9 +97,8 @@ namespace Library_Managment.Migrations
                     Edition = table.Column<string>(nullable: true),
                     Bookshelf = table.Column<string>(nullable: true),
                     Barcode = table.Column<string>(maxLength: 50, nullable: false),
-                    Price = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: false),
-                    IssueId = table.Column<int>(nullable: true)
+                    Price = table.Column<int>(nullable: false),
+                    CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -111,32 +109,50 @@ namespace Library_Managment.Migrations
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Books_Issues_IssueId",
-                        column: x => x.IssueId,
-                        principalTable: "Issues",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Baskets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BooksId = table.Column<int>(nullable: false),
+                    ReturnDate = table.Column<DateTime>(type: "date", nullable: false),
+                    IssueDate = table.Column<DateTime>(type: "date", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Baskets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Baskets_Books_BooksId",
+                        column: x => x.BooksId,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Baskets_BooksId",
+                table: "Baskets",
+                column: "BooksId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_CategoryId",
                 table: "Books",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Books_IssueId",
-                table: "Books",
-                column: "IssueId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Books");
+                name: "Baskets");
 
             migrationBuilder.DropTable(
                 name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "Issues");
 
             migrationBuilder.DropTable(
                 name: "ReturnBooks");
@@ -145,10 +161,10 @@ namespace Library_Managment.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Books");
 
             migrationBuilder.DropTable(
-                name: "Issues");
+                name: "Categories");
         }
     }
 }

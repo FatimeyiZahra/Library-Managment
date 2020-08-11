@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library_Managment.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20200809205953_addedBasketModel")]
-    partial class addedBasketModel
+    [Migration("20200811152531_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,22 +28,18 @@ namespace Library_Managment.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthorId")
+                    b.Property<int>("BooksId")
                         .HasColumnType("int");
 
-                    b.Property<int>("BarcodeId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("IssueDate")
+                        .HasColumnType("date");
 
-                    b.Property<int>("BookNameId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IssueDateId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ReturnDateId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("ReturnDate")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BooksId");
 
                     b.ToTable("Baskets");
                 });
@@ -79,17 +75,12 @@ namespace Library_Managment.Migrations
                     b.Property<string>("Edition")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IssueId")
+                    b.Property<int>("Price")
                         .HasColumnType("int");
-
-                    b.Property<string>("Price")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("IssueId");
 
                     b.ToTable("Books");
                 });
@@ -155,7 +146,7 @@ namespace Library_Managment.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookId")
+                    b.Property<int>("BooksId")
                         .HasColumnType("int");
 
                     b.Property<int>("CustomerId")
@@ -164,7 +155,7 @@ namespace Library_Managment.Migrations
                     b.Property<DateTime>("IssueDate")
                         .HasColumnType("date");
 
-                    b.Property<DateTime?>("ReturnDate")
+                    b.Property<DateTime>("ReturnDate")
                         .HasColumnType("date");
 
                     b.HasKey("Id");
@@ -228,6 +219,15 @@ namespace Library_Managment.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Library_Managment.Models.Basket", b =>
+                {
+                    b.HasOne("Library_Managment.Models.Books", "Books")
+                        .WithMany()
+                        .HasForeignKey("BooksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Library_Managment.Models.Books", b =>
                 {
                     b.HasOne("Library_Managment.Models.Category", "Category")
@@ -235,10 +235,6 @@ namespace Library_Managment.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Library_Managment.Models.Issue", null)
-                        .WithMany("Books")
-                        .HasForeignKey("IssueId");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,7 +10,7 @@ namespace Library_Managment.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-DGKGL9C\MSSQLSERVER01;Database=Library1;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-DGKGL9C\MSSQLSERVER01;Database=Library;Integrated Security=True");
         }
         public DbSet<Users> Users { get; set; }
         public DbSet<Category> Categories { get; set; }

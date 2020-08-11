@@ -21,6 +21,7 @@ namespace Library_Managment.Windows
     public partial class IssueBook : Window
     {
         private readonly LibraryContext _context;
+        private Basket _selectedBookFromBasket;
 
         public IssueBook()
         {
@@ -34,19 +35,73 @@ namespace Library_Managment.Windows
             this.Close();
         }
 
-        private void txtIssueCustomerCode_TextChanged(object sender, TextChangedEventArgs e)
+    
+
+        private void btnIssueAddBook_Click(object sender, RoutedEventArgs e)
+        {
+            Basket basket = new Basket
+            {
+                BooksId= int.Parse(txtBookId.Text),
+                ReturnDate = (DateTime)txtReturnDate.SelectedDate,
+            };
+            _context.Baskets.Add(basket);
+            _context.SaveChanges();
+            Reset();
+            MessageBox.Show("sebete elave edildi");
+        }
+        private void Reset()
+        {
+            txtBookId.Clear();
+            txtBookBarcode.Clear();
+            txtBookName.Clear();
+            txtBookPrice.Clear();
+            txtBookAuthor.Clear();
+            txtReturnDate.SelectedDate = null;
+            FillBook();
+        }
+        private void FillBook()
+        {
+            grdBasket.ItemsSource = _context.Baskets.ToList();
+           
+        }
+
+        private void txtBookId_TextChanged(object sender, TextChangedEventArgs e)
         {
             var db = new LibraryContext();
-            var model = db.Customers.Where(x => x.CustomerCode == txtIssueCustomerCode.Text).ToList();
+            var model = db.Books.Where(x => x.Id.ToString() == txtBookId.Text).ToList();
             foreach (var item in model)
             {
+                txtBookBarcode.Text = item.Barcode;
+                txtBookAuthor.Text = item.Author;
+                txtBookName.Text = item.BookName;
+                txtBookPrice.Text = item.Price.ToString();
+                //txtBookId.Text = item.Id.ToString();
+            }
+            if (string.IsNullOrEmpty(txtBookId.Text))
+            {
+                txtBookBarcode.Clear();
+                txtBookAuthor.Clear();
+                txtBookName.Clear();
+                txtBookPrice.Clear();
+
+            }
+        }
+
+        private void txtIssueCustomerId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var db = new LibraryContext();
+            var model = db.Customers.Where(x => x.Id.ToString() == txtIssueCustomerId.Text).ToList();
+            foreach (var item in model)
+            {
+                txtIssueCustomerCode.Text = item.CustomerCode;
                 txtIssueCustomerName.Text = item.CustomerName;
                 txtIssueCustomerSurname.Text = item.CustomerSurname;
                 txtIssueCustomerEmail.Text = item.CustomerEmail;
                 txtIssueCustomerTel.Text = item.CustomerTelNo;
             }
-            if (string.IsNullOrEmpty(txtIssueCustomerCode.Text))
+            if (string.IsNullOrEmpty(txtIssueCustomerId.Text))
             {
+                txtIssueCustomerCode.Clear();
                 txtIssueCustomerName.Clear();
                 txtIssueCustomerSurname.Clear();
                 txtIssueCustomerEmail.Clear();
@@ -54,43 +109,43 @@ namespace Library_Managment.Windows
             }
         }
 
-        private void txtBookBarcode_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnIssueDelete_Click(object sender, RoutedEventArgs e)
         {
-            var db = new LibraryContext();
-            var model = db.Books.Where(x => x.Barcode == txtBookBarcode.Text).ToList();
-            foreach (var item in model)
+            MessageBoxResult r = MessageBox.Show("Əminsiniz mi?", _selectedBookFromBasket.ToString(), MessageBoxButton.OKCancel);
+            if (r == MessageBoxResult.OK)
             {
-               txtBookAuthor.Text = item.Author;
-                txtBookName.Text = item.BookName;
-                txtBookPrice.Text = item.Price;
-            }
-            if (string.IsNullOrEmpty(txtBookBarcode.Text))
-            {
-                txtBookAuthor.Clear();
-                txtBookName.Clear();
-                txtBookPrice.Clear();
-                
+                _context.Baskets.Remove(_selectedBookFromBasket);
+                _context.SaveChanges();
+                Reset();
+                MessageBox.Show("kitab sebetden silindi");
             }
         }
 
-        private void btnIssueAddBook_Click(object sender, RoutedEventArgs e)
+        private void btnIssueAccept_Click(object sender, RoutedEventArgs e)
         {
-            Basket basket = new Basket
+            if (string.IsNullOrEmpty(txtIssueCustomerId.Text))
             {
-                BarcodeId = (int)txtBookBarcode.CaretIndex,
-                BookNameId=(int)txtBookName.CaretIndex,
-                AuthorId=(int)txtBookAuthor.CaretIndex,
-                //PriceId=(int)txtBookPrice.CaretIndex,
-                //ReturnDate=(DateTime)txtReturnDate.SelectedDate,
-
+                MessageBox.Show("Musteri Id-sini daxil edin");
+            }
+            Issue issue = new Issue
+            {
+                CustomerId = int.Parse(txtIssueCustomerId.Text),
+                ReturnDate = (DateTime)txtReturnDate.SelectedDate,
+                BooksId = int.Parse(txtBookId.Text),
             };
-            _context.Baskets.Add(basket);
+            _context.Issues.Add(issue);
             _context.SaveChanges();
-            MessageBox.Show("sebete elave edildi");
+            Reset();
+            MessageBox.Show("Sifaris Tesdiqlendi");
+            //grdBasket.Items.Clear();
+
         }
-        private void FillBook()
+
+        private void grdBasket_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            grdBasket.ItemsSource = _context.Baskets.ToList();
+            if (grdBasket.SelectedItem == null) return;
+            _selectedBookFromBasket = (Basket)grdBasket.SelectedItem;
+
         }
     }
 }

@@ -13,16 +13,13 @@ namespace Library_Managment.Models
         public int CustomerId { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime IssueDate { get; set; }
+        public DateTime IssueDate { get; set; } = DateTime.Now;
 
         [Column(TypeName = "date")]
-        public DateTime? ReturnDateId { get; set; }
+        public DateTime ReturnDate { get; set; }
+        public int BooksId { get; set; }
 
-        public int BookId { get; set; }
-        public string BarcodeId { get; set; }
-
-        //public double Fine { get; set; }
-        public ICollection<Books> Books { get; set; }
+        //public ICollection<Books> Books { get; set; }
 
     }
 }
