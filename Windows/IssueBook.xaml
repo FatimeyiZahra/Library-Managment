@@ -12,7 +12,7 @@
         Title="IssueBook" Height="700" Width="1024">
     <Grid>
         <Grid  Margin="10,10,773,322">
-            <TextBox x:Name="txtIssueCustomerName"  Margin="0,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtIssueCustomerName"  Margin="40,102,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" />
             <TextBox x:Name="txtIssueCustomerCode" Margin="40,53,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Musteri Kodu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" />
             <TextBox x:Name="txtIssueCustomerSurname" Margin="40,151,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Soy Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
             <TextBox x:Name="txtIssueCustomerTel" Margin="40,199,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Tel-No" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
@@ -21,12 +21,11 @@
 
         </Grid>
         <Grid  Margin="388,10,388,322">
-            <TextBox x:Name="txtBookPrice" Margin="0,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Qiymeti" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtBookPrice" Margin="44,199,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Qiymeti" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" />
             <TextBox x:Name="txtBookName" Margin="44,150,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Kitab Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
-
             <TextBox x:Name="txtBookBarcode" Margin="44,52,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Kitab Barkod" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
             <TextBox x:Name="txtBookAuthor" Margin="44,101,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Yazici" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
-            <DatePicker x:Name="txtReturnDate" HorizontalAlignment="Center" Margin="0,248,0,0" VerticalAlignment="Top" Width="160" Height="44" materialDesign:HintAssist.Hint="Qaytarma Vaxti" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+            <DatePicker x:Name="txtReturnDate" Margin="0,248,0,0" VerticalAlignment="Top" Width="150" Height="44" materialDesign:HintAssist.Hint="Qaytarma Vaxti" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
             <TextBox x:Name="txtBookId" Margin="44,10,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Kitab Id-si" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" TextChanged="txtBookId_TextChanged" />
 
         </Grid>

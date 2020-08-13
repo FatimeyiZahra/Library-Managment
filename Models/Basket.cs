@@ -9,7 +9,9 @@ namespace Library_Managment.Models
     {
         public int Id { get; set; }
         public int BooksId { get; set; }
-        public Books Books { get; set; }
+
+        public int CustomerId { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime ReturnDate { get; set; }
 

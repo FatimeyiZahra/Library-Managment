@@ -35,13 +35,12 @@ namespace Library_Managment.Windows
             this.Close();
         }
 
-    
-
         private void btnIssueAddBook_Click(object sender, RoutedEventArgs e)
         {
             Basket basket = new Basket
             {
-                BooksId= int.Parse(txtBookId.Text),
+                CustomerId = int.Parse(txtIssueCustomerId.Text),
+                BooksId = int.Parse(txtBookId.Text),
                 ReturnDate = (DateTime)txtReturnDate.SelectedDate,
             };
             _context.Baskets.Add(basket);
@@ -62,7 +61,7 @@ namespace Library_Managment.Windows
         private void FillBook()
         {
             grdBasket.ItemsSource = _context.Baskets.ToList();
-           
+
         }
 
         private void txtBookId_TextChanged(object sender, TextChangedEventArgs e)
@@ -127,13 +126,17 @@ namespace Library_Managment.Windows
             {
                 MessageBox.Show("Musteri Id-sini daxil edin");
             }
-            Issue issue = new Issue
+            var books = _context.Baskets.Where(x => x.CustomerId == int.Parse(txtIssueCustomerId.Text)).ToList();
+            foreach (var book in books)
             {
-                CustomerId = int.Parse(txtIssueCustomerId.Text),
-                ReturnDate = (DateTime)txtReturnDate.SelectedDate,
-                BooksId = int.Parse(txtBookId.Text),
-            };
-            _context.Issues.Add(issue);
+                Issue issue = new Issue
+                {
+                    CustomerId = int.Parse(txtIssueCustomerId.Text),
+                    ReturnDate = book.ReturnDate,
+                    BooksId = book.Id
+                };
+                _context.Issues.Add(issue);
+            }
             _context.SaveChanges();
             Reset();
             MessageBox.Show("Sifaris Tesdiqlendi");

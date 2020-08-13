@@ -5445,11 +5445,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MacBook Air\\source\\repos\\Library Managment\\Library Managment.csproj",
+      "projectUniqueName": "C:\\Users\\MacBook Air\\Desktop\\Library-Managment\\Library Managment.csproj",
       "projectName": "Library Managment",
-      "projectPath": "C:\\Users\\MacBook Air\\source\\repos\\Library Managment\\Library Managment.csproj",
+      "projectPath": "C:\\Users\\MacBook Air\\Desktop\\Library-Managment\\Library Managment.csproj",
       "packagesPath": "C:\\Users\\MacBook Air\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MacBook Air\\source\\repos\\Library Managment\\obj\\",
+      "outputPath": "C:\\Users\\MacBook Air\\Desktop\\Library-Managment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MacBook Air\\AppData\\Roaming\\NuGet\\NuGet.Config",

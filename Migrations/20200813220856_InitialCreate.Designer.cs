@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library_Managment.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20200811152531_InitialCreate")]
+    [Migration("20200813220856_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,9 @@ namespace Library_Managment.Migrations
                     b.Property<int>("BooksId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("IssueDate")
                         .HasColumnType("date");
 
@@ -38,8 +41,6 @@ namespace Library_Managment.Migrations
                         .HasColumnType("date");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BooksId");
 
                     b.ToTable("Baskets");
                 });
@@ -217,15 +218,6 @@ namespace Library_Managment.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Library_Managment.Models.Basket", b =>
-                {
-                    b.HasOne("Library_Managment.Models.Books", "Books")
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Library_Managment.Models.Books", b =>

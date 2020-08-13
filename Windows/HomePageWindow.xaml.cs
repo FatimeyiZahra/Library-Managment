@@ -23,13 +23,29 @@ namespace Library_Managment.Windows
             InitializeComponent();
         }
 
+        private bool BtnDashboardIsOpen = false;
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
         {
-            btnDashboard.Margin = new Thickness(20, 35, 19, 517);
-            dbcontent.Visibility = Visibility.Visible;
-          
+            if (!BtnDashboardIsOpen)
+            {
+                btnDashboard.Margin = new Thickness(20, 35, 19, 517);
+                dbcontent.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnDashboard.Margin = new Thickness(20, 135, 20, 400);
+                dbcontent.Visibility = Visibility.Hidden;
+            }
+            BtnDashboardIsOpen = !BtnDashboardIsOpen;
         }
+
+        //private void btnDashboard_Click(object sender, RoutedEventArgs e)
+        //{
+        //    btnDashboard.Margin = new Thickness(20, 35, 19, 517);
+        //    dbcontent.Visibility = Visibility.Visible;
+          
+        //}
 
         private void btnCustomer_Click(object sender, RoutedEventArgs e)
         {
