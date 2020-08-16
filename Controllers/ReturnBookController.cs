@@ -24,10 +24,10 @@ namespace Library_Managment.Controllers
 
         private double GetTotalPrice(DateTime d1, DateTime d2, double price)
         {
-            var totalPrice = price;
-            if (d1 > d2)
+            var totalPrice = 0.0;
+            if (d1 > d2) // gecikenler
             {
-                totalPrice += ((price * 0.5 / 100) * (double)((d1 - d2).Days));
+                totalPrice += (price * 0.05 / 100) * (double)(d1 - d2).Days;
             }
             return totalPrice;
         }
@@ -44,7 +44,6 @@ namespace Library_Managment.Controllers
                                          customer.Id,
                                          book.Id,
                                          order.ReturnDate,
-                                         book.Price,
                                          GetTotalPrice(DateTime.Now, order.ReturnDate, book.Price),
                                          order.IssueStatusType
                                      )).ToList();
@@ -56,16 +55,17 @@ namespace Library_Managment.Controllers
         public void RemoveCustomerIssue(int Id)
         {
             var order = _context.Issues.FirstOrDefault(x => x.Id == Id);
+            var book = _context.Books.FirstOrDefault(x => x.Id == order.BooksId);
             if (order != null)
             {
                 order.IssueStatusType = 2;
                 order.GivedDate = DateTime.Now;
-                MessageBox.Show("Order silindi");
+                MessageBox.Show($"Kitab Qaytarildi, odenilicek mebleg: {GetTotalPrice(DateTime.Now, order.ReturnDate, book.Price)} ");
                 _context.SaveChanges();
             }
             else
             {
-                MessageBox.Show("Order tapilmadi");
+                MessageBox.Show("Kitab bazada yoxdu");
             }
         }
 

@@ -88,7 +88,7 @@ namespace Library_Managment.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library Managment;V1.0.0.0;component/windows/reportswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library Managment;component/windows/reportswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\ReportsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

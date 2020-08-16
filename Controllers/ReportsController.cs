@@ -46,7 +46,7 @@ namespace Library_Managment.Controllers
                               book.Author,
                               book.Barcode,
                               category.Name,
-                              GetDays(order.GivedDate, order.ReturnDate) * (book.Price * (0.5 / 100.0))
+                              GetDays(order.GivedDate, order.ReturnDate) * (book.Price * (0.05 / 100.0))
                           )).ToList();
             if (result != null && result?.Count != 0)
                 return result;
