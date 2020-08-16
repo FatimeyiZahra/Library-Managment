@@ -62,7 +62,7 @@ namespace Library_Managment.Migrations
                     CustomerId = table.Column<int>(nullable: false),
                     IssueDate = table.Column<DateTime>(type: "date", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "date", nullable: false),
-                    GivedDate = table.Column<DateTime>(type: "date", nullable: false),
+                    GivedDate = table.Column<DateTime>(type: "date", nullable: true),
                     BooksId = table.Column<int>(nullable: false),
                     IssueStatusType = table.Column<int>(nullable: false)
                 },

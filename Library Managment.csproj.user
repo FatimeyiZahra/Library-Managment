@@ -31,6 +31,9 @@
     <Compile Update="Windows\ReportsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\ReturnBookCustomersWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\ReturnBookWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\ReportsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\ReturnBookCustomersWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\ReturnBookWindow.xaml">

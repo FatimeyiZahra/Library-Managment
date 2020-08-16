@@ -93,5 +93,11 @@ namespace Library_Managment.Windows
             ReturnBookWindow returnBook = new ReturnBookWindow();
             returnBook.Show();
         }
+
+        private void btnReturnBook_Click(object sender, RoutedEventArgs e)
+        {
+            ReturnBookCustomersWindow returnBookCustomers = new ReturnBookCustomersWindow();
+            returnBookCustomers.Show();
+        }
     }
 }

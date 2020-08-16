@@ -14,10 +14,9 @@ namespace Library_Managment.Models
         public string BookAuthor { get; set; }
         public string Bookbarcode { get; set; }
         public string CategoryName { get; set; }
-        public double Price { get; set; }
         public double TotalPrice { get; set; }
 
-        public Report(int issueId, string customerName, string customerSurname, string customerTel, string bookName, string bookAuthor, string bookbarcode, string categoryName, double price, double totalPrice)
+        public Report(int issueId, string customerName, string customerSurname, string customerTel, string bookName, string bookAuthor, string bookbarcode, string categoryName, double totalPrice)
         {
             IssueId = issueId;
             CustomerName = customerName;
@@ -27,7 +26,6 @@ namespace Library_Managment.Models
             BookAuthor = bookAuthor;
             Bookbarcode = bookbarcode;
             CategoryName = categoryName;
-            Price = price;
             TotalPrice = totalPrice;
         }
     }

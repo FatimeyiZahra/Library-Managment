@@ -149,6 +149,7 @@ namespace Library_Managment.Windows
             _context.Baskets.RemoveRange(_context.Baskets.Where(x => x.CustomerId == int.Parse(txtIssueCustomerId.Text)));
             _context.SaveChanges();
             Reset();
+            txtIssueCustomerId.Clear();
             grdBasket.ItemsSource = null;
             grdBasket.Items.Clear();
             grdBasket.Items.Refresh();

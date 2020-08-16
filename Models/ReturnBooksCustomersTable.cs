@@ -17,9 +17,5 @@ namespace Library_Managment.Models
             CustomerBookNeedsToGiveCount = customerBookNeedsToGiveCount;
         }
 
-
-        //CustomerName = customer.CustomerName,
-        //                                    CustomerTel = customer.CustomerTelNo,
-        //                                    CustomerBookAvailable = orderGrouped.Count()
     }
 }

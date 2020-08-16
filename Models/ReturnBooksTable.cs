@@ -12,8 +12,20 @@ namespace Library_Managment.Models
         public DateTime ReturnDate { get; set; }
         public double Price { get; set; }
         public double TotalPrice { get; set; }
+        public String StatusType { get; set; }
 
-        public ReturnBooksTable(int orderId, int customerId, int booksId, DateTime returnDate, double price, double totalPrice)
+        private String getStatus(int status)
+        {
+            switch (status)
+            {
+                case 1: return "Gozlemede";
+                case 2: return "Qaytarilib";
+                default:
+                    return "No Info";
+            }
+        }
+
+        public ReturnBooksTable(int orderId, int customerId, int booksId, DateTime returnDate, double price, double totalPrice, int statusType)
         {
             OrderId = orderId;
             CustomerId = customerId;
@@ -21,6 +33,7 @@ namespace Library_Managment.Models
             ReturnDate = returnDate;
             Price = price;
             TotalPrice = totalPrice;
+            StatusType = getStatus(statusType);
         }
     }
 

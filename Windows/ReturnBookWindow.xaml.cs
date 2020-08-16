@@ -1,5 +1,6 @@
 ﻿using Library_Managment.Controllers;
 using Library_Managment.Data;
+using Library_Managment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,9 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class ReturnBookWindow : Window
     {
-        
+
         private ReturnBookController returnBookController;
+        private ReturnBooksTable _returnBooksTable;
         public ReturnBookWindow()
         {
             InitializeComponent();
@@ -75,7 +77,56 @@ namespace Library_Managment.Windows
 
         private void searchByCustomerId_Click(object sender, RoutedEventArgs e)
         {
-            var result = returnBookController.GetCustomerBooks(txtIssueCustomerId)
+            fillDataGrid();
+        }
+
+        private void fillDataGrid()
+        {
+            var result = returnBookController.GetCustomerBooks(int.Parse(txtIssueCustomerId.Text));
+            returnBookDataGrid.ItemsSource = result;
+        }
+
+
+        private void removeCustomerIssue_Click(object sender, RoutedEventArgs e)
+        {
+            returnBookController.RemoveCustomerIssue(_returnBooksTable.OrderId);
+            removeCustomerIssue.IsEnabled = false;
+            fillDataGrid();
+            returnBookDataGrid.Items.Refresh();
+        }
+
+        private void fillTextBoxBook(Books books)
+        {
+            txtBookId.Text = books.Id.ToString();
+            txtBookName.Text = books.BookName;
+            txtBookBarcode.Text = books.Barcode;
+            txtBookAuthor.Text = books.Author;
+            txtBookPrice.Text = books.Price.ToString();
+        }
+
+        private void resetTextBoxBook()
+        {
+            txtBookId.Clear();
+            txtBookName.Clear();
+            txtBookBarcode.Clear();
+            txtBookAuthor.Clear();
+            txtBookPrice.Clear();
+        }
+
+
+
+        private void returnBookDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (returnBookDataGrid.SelectedItem == null)
+            {
+                removeCustomerIssue.IsEnabled = false;
+                resetTextBoxBook();
+                return;
+            }
+            removeCustomerIssue.IsEnabled = true;
+            _returnBooksTable = (ReturnBooksTable)returnBookDataGrid.SelectedItem;
+            var result = returnBookController.getBookInformation(_returnBooksTable.BooksId);
+            fillTextBoxBook(result);
         }
     }
 }

@@ -28,14 +28,14 @@ namespace Library_Managment.Controllers
             DateTime d = d1 ?? d2;
             return d >= d2 ? (d - d2).Days : 0;
         }
-        
+
         public List<Report> GetReportsByTwoDate(DateTime start, DateTime end)
         {
             var result = (from order in _context.Issues.ToList()
                           join customer in _context.Customers.ToList() on order.CustomerId equals customer.Id
                           join book in _context.Books.ToList() on order.BooksId equals book.Id
                           join category in _context.Categories.ToList() on book.CategoryId equals category.Id
-                          where order.GivedDate != null && order.GivedDate >= start && order.GivedDate <= end
+                          where order.GivedDate != null && order.GivedDate >= start && order.GivedDate <= end && order.IssueStatusType == 2
                           select new Report
                           (
                               order.Id,
@@ -46,14 +46,12 @@ namespace Library_Managment.Controllers
                               book.Author,
                               book.Barcode,
                               category.Name,
-                              book.Price,
-                              book.Price + GetDays(order.GivedDate, order.ReturnDate) * (book.Price * (0.5 / 100.0))
+                              GetDays(order.GivedDate, order.ReturnDate) * (book.Price * (0.5 / 100.0))
                           )).ToList();
             if (result != null && result?.Count != 0)
                 return result;
             return new List<Report>();
         }
-
 
         public void ReportsToExcelFile(DataGrid dataGrid)
         {

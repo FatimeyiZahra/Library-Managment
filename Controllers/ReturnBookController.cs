@@ -38,14 +38,15 @@ namespace Library_Managment.Controllers
                                      join customer in _context.Customers.ToList() on order.CustomerId equals customer.Id
                                      join book in _context.Books.ToList() on order.BooksId equals book.Id
                                      join category in _context.Categories.ToList() on book.CategoryId equals category.Id
-                                     where customer.Id == id && order.IssueStatusType == 1
+                                     where order.CustomerId == id && order.IssueStatusType == 1
                                      select new ReturnBooksTable(
                                          order.Id,
                                          customer.Id,
                                          book.Id,
                                          order.ReturnDate,
                                          book.Price,
-                                         GetTotalPrice(DateTime.Now, order.ReturnDate, book.Price)
+                                         GetTotalPrice(DateTime.Now, order.ReturnDate, book.Price),
+                                         order.IssueStatusType
                                      )).ToList();
             if (returnBooksTables != null && returnBooksTables?.Count != 0)
                 return returnBooksTables;
@@ -59,6 +60,7 @@ namespace Library_Managment.Controllers
             {
                 order.IssueStatusType = 2;
                 order.GivedDate = DateTime.Now;
+                MessageBox.Show("Order silindi");
                 _context.SaveChanges();
             }
             else
@@ -67,36 +69,14 @@ namespace Library_Managment.Controllers
             }
         }
 
-        private bool ReturnDateCheck(DateTime returnDate, EnumDate enumDate)
-        {
-            switch (enumDate)
-            {
-                case EnumDate.NEEDSTOGIVE:
-                    return (returnDate - DateTime.Now).Days < 0;
-                case EnumDate.TODAY:
-                    return returnDate.DayOfYear == DateTime.Now.DayOfYear;
-                case EnumDate.TOMORROW:
-                    return (returnDate - DateTime.Now).Days == 1;
-                default: return false;
-            }
-        }
 
-        public List<ReturnBooksCustomersTable> GetOrdersByDate(EnumDate enumDate)
+        public Books getBookInformation(int id)
         {
-            var todayReturnBookTable = (from order in _context.Issues.ToList()
-                                        where ReturnDateCheck(order.ReturnDate, enumDate)
-                                        group order by order.CustomerId into orderGrouped
-                                        join customer in _context.Customers.ToList() on orderGrouped.Key equals customer.Id
-                                        select new ReturnBooksCustomersTable
-                                        (
-                                            customer.CustomerName,
-                                            customer.CustomerTelNo,
-                                            orderGrouped.Count()
-                                        )).ToList();
-            if (todayReturnBookTable != null && todayReturnBookTable.Count != 0)
-                return todayReturnBookTable;
-            else
-                return new List<ReturnBooksCustomersTable>();
+            var book = _context.Books.FirstOrDefault(x => x.Id == id);
+            if (book != null)
+                return book;
+            MessageBox.Show("Kitabin melumatlari bazada tapilmadi");
+            return new Books();
         }
 
         public Customer GetCustomerById(int id)

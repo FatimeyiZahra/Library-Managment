@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library_Managment.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20200815174647_InitialCreate")]
+    [Migration("20200816193301_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,7 +158,7 @@ namespace Library_Managment.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("GivedDate")
+                    b.Property<DateTime?>("GivedDate")
                         .HasColumnType("date");
 
                     b.Property<DateTime>("IssueDate")

@@ -146,3 +146,5 @@ C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\R
 C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReturnBookWindow.baml
 C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReportsWindow.g.cs
 C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReportsWindow.baml
+C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReturnBookCustomersWindow.g.cs
+C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReturnBookCustomersWindow.baml
