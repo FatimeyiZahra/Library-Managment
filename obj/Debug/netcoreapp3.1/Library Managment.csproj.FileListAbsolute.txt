@@ -142,3 +142,7 @@ C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Library M
 C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Library Managment.dll
 C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Library Managment.pdb
 C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Library Managment.genruntimeconfig.cache
+C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReturnBookWindow.g.cs
+C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReturnBookWindow.baml
+C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReportsWindow.g.cs
+C:\Users\MacBook Air\Desktop\Library-Managment\obj\Debug\netcoreapp3.1\Windows\ReportsWindow.baml

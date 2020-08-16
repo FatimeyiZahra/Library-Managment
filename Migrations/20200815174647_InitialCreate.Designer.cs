@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library_Managment.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20200813220856_InitialCreate")]
+    [Migration("20200815174647_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,6 +62,9 @@ namespace Library_Managment.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int?>("BasketId")
+                        .HasColumnType("int");
+
                     b.Property<string>("BookName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -80,6 +83,8 @@ namespace Library_Managment.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
 
                     b.HasIndex("CategoryId");
 
@@ -153,8 +158,14 @@ namespace Library_Managment.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("GivedDate")
+                        .HasColumnType("date");
+
                     b.Property<DateTime>("IssueDate")
                         .HasColumnType("date");
+
+                    b.Property<int>("IssueStatusType")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("date");
@@ -162,40 +173,6 @@ namespace Library_Managment.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Issues");
-                });
-
-            modelBuilder.Entity("Library_Managment.Models.ReturnBook", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("Fine")
-                        .HasColumnType("float");
-
-                    b.Property<byte[]>("FinePaid")
-                        .HasColumnType("varbinary(10)")
-                        .HasMaxLength(10);
-
-                    b.Property<DateTime>("IssueDate")
-                        .HasColumnType("date");
-
-                    b.Property<int?>("IssueId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ReturnDate")
-                        .HasColumnType("date");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ReturnBooks");
                 });
 
             modelBuilder.Entity("Library_Managment.Models.Users", b =>
@@ -222,6 +199,10 @@ namespace Library_Managment.Migrations
 
             modelBuilder.Entity("Library_Managment.Models.Books", b =>
                 {
+                    b.HasOne("Library_Managment.Models.Basket", "Basket")
+                        .WithMany("Books")
+                        .HasForeignKey("BasketId");
+
                     b.HasOne("Library_Managment.Models.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId")

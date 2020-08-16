@@ -42,6 +42,7 @@
                 <DataGridTextColumn Width="0.15*" Header="Il" Binding="{Binding Edition}"/>
 
                 <DataGridTextColumn Width="0.20*" Header="Kateqoriya" Binding="{Binding Category.Name}"/>
+                <materialDesign:DataGridComboBoxColumn/>
             </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="txtSearchBook"  materialDesign:HintAssist.Hint="Kitabi adina gore axtar" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Text="{Binding ElementName=grdBooks, Path=SelectedItem.BookName}" HorizontalAlignment="Center" Margin="0,598,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="222" TextChanged="TextBox_TextChanged"/>

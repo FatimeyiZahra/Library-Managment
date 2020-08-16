@@ -44,14 +44,14 @@ namespace Library_Managment.Windows
         //{
         //    btnDashboard.Margin = new Thickness(20, 35, 19, 517);
         //    dbcontent.Visibility = Visibility.Visible;
-          
+
         //}
 
         private void btnCustomer_Click(object sender, RoutedEventArgs e)
         {
             btnDashboard.Margin = new Thickness(20, 135, 20, 400);
             AddCustomer addCustomer = new AddCustomer();
-            addCustomer.Show();  
+            addCustomer.Show();
             dbcontent.Visibility = Visibility.Hidden;
 
         }
@@ -60,7 +60,7 @@ namespace Library_Managment.Windows
         {
             btnDashboard.Margin = new Thickness(20, 135, 20, 400);
             dbcontent.Visibility = Visibility.Hidden;
-       AddBook addBook = new AddBook();
+            AddBook addBook = new AddBook();
             addBook.Show();
         }
 
@@ -79,6 +79,19 @@ namespace Library_Managment.Windows
             IssueBook issueBook = new IssueBook();
             issueBook.Show();
 
+        }
+
+
+        private void btnHesabatlar_Click(object sender, RoutedEventArgs e)
+        {
+            ReportsWindow reportsWindow = new ReportsWindow();
+            reportsWindow.Show();
+        }
+
+        private void BtnReturnBookList_Click(object sender, RoutedEventArgs e)
+        {
+            ReturnBookWindow returnBook = new ReturnBookWindow();
+            returnBook.Show();
         }
     }
 }

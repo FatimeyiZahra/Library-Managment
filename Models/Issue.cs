@@ -17,7 +17,14 @@ namespace Library_Managment.Models
 
         [Column(TypeName = "date")]
         public DateTime ReturnDate { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? GivedDate { get; set; } = null;
+
         public int BooksId { get; set; }
+
+        public int IssueStatusType { get; set; }
+
 
         //public ICollection<Books> Books { get; set; }
 

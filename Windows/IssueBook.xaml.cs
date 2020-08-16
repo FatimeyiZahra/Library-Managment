@@ -1,4 +1,5 @@
-﻿using Library_Managment.Data;
+﻿using Library_Managment.Controllers;
+using Library_Managment.Data;
 using Library_Managment.Models;
 using System;
 using System.Collections.Generic;
@@ -37,14 +38,21 @@ namespace Library_Managment.Windows
 
         private void btnIssueAddBook_Click(object sender, RoutedEventArgs e)
         {
-            Basket basket = new Basket
+            try
             {
-                CustomerId = int.Parse(txtIssueCustomerId.Text),
-                BooksId = int.Parse(txtBookId.Text),
-                ReturnDate = (DateTime)txtReturnDate.SelectedDate,
-            };
-            _context.Baskets.Add(basket);
-            _context.SaveChanges();
+                Basket basket = new Basket
+                {
+                    CustomerId = int.Parse(txtIssueCustomerId.Text),
+                    BooksId = int.Parse(txtBookId.Text),
+                    ReturnDate = (DateTime)txtReturnDate.SelectedDate,
+                };
+                _context.Baskets.Add(basket);
+                _context.SaveChanges();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
             Reset();
             MessageBox.Show("sebete elave edildi");
         }
@@ -61,7 +69,6 @@ namespace Library_Managment.Windows
         private void FillBook()
         {
             grdBasket.ItemsSource = _context.Baskets.ToList();
-
         }
 
         private void txtBookId_TextChanged(object sender, TextChangedEventArgs e)
@@ -125,6 +132,7 @@ namespace Library_Managment.Windows
             if (string.IsNullOrEmpty(txtIssueCustomerId.Text))
             {
                 MessageBox.Show("Musteri Id-sini daxil edin");
+                return;
             }
             var books = _context.Baskets.Where(x => x.CustomerId == int.Parse(txtIssueCustomerId.Text)).ToList();
             foreach (var book in books)
@@ -133,15 +141,18 @@ namespace Library_Managment.Windows
                 {
                     CustomerId = int.Parse(txtIssueCustomerId.Text),
                     ReturnDate = book.ReturnDate,
-                    BooksId = book.Id
+                    BooksId = book.BooksId,
+                    IssueStatusType = 1
                 };
                 _context.Issues.Add(issue);
             }
+            _context.Baskets.RemoveRange(_context.Baskets.Where(x => x.CustomerId == int.Parse(txtIssueCustomerId.Text)));
             _context.SaveChanges();
             Reset();
+            grdBasket.ItemsSource = null;
+            grdBasket.Items.Clear();
+            grdBasket.Items.Refresh();
             MessageBox.Show("Sifaris Tesdiqlendi");
-            //grdBasket.Items.Clear();
-
         }
 
         private void grdBasket_SelectionChanged(object sender, SelectionChangedEventArgs e)

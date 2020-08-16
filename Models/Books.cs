@@ -25,6 +25,8 @@ namespace Library_Managment.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        public virtual Basket Basket { get; set; }
+
         public override string ToString()
         {
             return BookName + " " + Author;

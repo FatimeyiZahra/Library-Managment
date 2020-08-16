@@ -62,30 +62,13 @@ namespace Library_Managment.Migrations
                     CustomerId = table.Column<int>(nullable: false),
                     IssueDate = table.Column<DateTime>(type: "date", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "date", nullable: false),
-                    BooksId = table.Column<int>(nullable: false)
+                    GivedDate = table.Column<DateTime>(type: "date", nullable: false),
+                    BooksId = table.Column<int>(nullable: false),
+                    IssueStatusType = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Issues", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ReturnBooks",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    BookId = table.Column<int>(nullable: true),
-                    IssueId = table.Column<int>(nullable: true),
-                    MemberId = table.Column<int>(nullable: false),
-                    IssueDate = table.Column<DateTime>(type: "date", nullable: false),
-                    ReturnDate = table.Column<DateTime>(type: "date", nullable: false),
-                    Fine = table.Column<double>(nullable: true),
-                    FinePaid = table.Column<byte[]>(maxLength: 10, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ReturnBooks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,11 +97,18 @@ namespace Library_Managment.Migrations
                     Bookshelf = table.Column<string>(nullable: true),
                     Barcode = table.Column<string>(maxLength: 50, nullable: false),
                     Price = table.Column<int>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false),
+                    BasketId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Books_Baskets_BasketId",
+                        column: x => x.BasketId,
+                        principalTable: "Baskets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Books_Categories_CategoryId",
                         column: x => x.CategoryId,
@@ -126,6 +116,11 @@ namespace Library_Managment.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_BasketId",
+                table: "Books",
+                column: "BasketId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_CategoryId",
@@ -136,9 +131,6 @@ namespace Library_Managment.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Baskets");
-
-            migrationBuilder.DropTable(
                 name: "Books");
 
             migrationBuilder.DropTable(
@@ -148,10 +140,10 @@ namespace Library_Managment.Migrations
                 name: "Issues");
 
             migrationBuilder.DropTable(
-                name: "ReturnBooks");
+                name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Baskets");
 
             migrationBuilder.DropTable(
                 name: "Categories");

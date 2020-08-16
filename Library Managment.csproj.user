@@ -28,6 +28,12 @@
     <Compile Update="Windows\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\ReportsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\ReturnBookWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -52,6 +58,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\ReportsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\ReturnBookWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
