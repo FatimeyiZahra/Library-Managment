@@ -42,7 +42,7 @@ namespace Library_Managment.Windows
                 txtIssueCustomerTel.Text = item.CustomerTelNo;
             }
             else
-                MessageBox.Show("User is not found.");
+                MessageBox.Show("Istifadeci tapilmadi.");
             if (string.IsNullOrEmpty(txtIssueCustomerId.Text))
             {
                 txtIssueCustomerCode.Clear();

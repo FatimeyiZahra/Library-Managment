@@ -28,7 +28,7 @@
                 <DataGridTextColumn Width="0.10*" Header="Kitab Yaz." Binding="{Binding BookAuthor}"/>
                 <DataGridTextColumn Width="0.10*" Header="Kitab Barkod" Binding="{Binding Bookbarcode}"/>
                 <DataGridTextColumn Width="0.10*" Header="Novu" Binding="{Binding CategoryName}"/>
-                <DataGridTextColumn Width="0.10*" Header="Umumi Qiymeti" Binding="{Binding TotalPrice}"/>
+                <DataGridTextColumn Width="0.10*" Header="Cerime Miqdari" Binding="{Binding TotalPrice}"/>
             </DataGrid.Columns>
         </DataGrid>
 

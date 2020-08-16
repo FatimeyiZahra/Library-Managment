@@ -10,7 +10,6 @@ namespace Library_Managment.Models
         public int CustomerId { get; set; }
         public int BooksId { get; set; }
         public DateTime ReturnDate { get; set; }
-        public double Price { get; set; }
         public double TotalPrice { get; set; }
         public String StatusType { get; set; }
 
@@ -25,13 +24,12 @@ namespace Library_Managment.Models
             }
         }
 
-        public ReturnBooksTable(int orderId, int customerId, int booksId, DateTime returnDate, double price, double totalPrice, int statusType)
+        public ReturnBooksTable(int orderId, int customerId, int booksId, DateTime returnDate, double totalPrice, int statusType)
         {
             OrderId = orderId;
             CustomerId = customerId;
             BooksId = booksId;
             ReturnDate = returnDate;
-            Price = price;
             TotalPrice = totalPrice;
             StatusType = getStatus(statusType);
         }
